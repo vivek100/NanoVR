@@ -5,6 +5,7 @@ const port = 80
 // Set static folder
 app.use(express.static(__dirname));
 //app.use(express.static('public'))
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+
+app.listen(process.env.PORT, () => {
+  console.log(`Example app listening at http://localhost:${process.env.PORT}`)
 })
