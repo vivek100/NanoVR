@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 8080
+const PORT = process.env.PORT || 80;
 
 // Set static folder
 app.use(express.static(__dirname));
