@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-language" content="en-EN" />
+    
+    <title>JEELIZ FACEFILTER: A-FRAME CUBE DEMO</title>
+    
+    <!-- INCLUDE JEELIZ FACEFILTER SCRIPT -->
+    <script src="./jeelizFaceFilter.js"></script>
+
+    <!-- INCLUDE A MODIFIED VERSION OF AFRAME -->
+    <!-- SEARCH FOR "JEELIZ" COMMENT TO SEE THE MODIFS -->
+    <script src="./aframe-v0.8.2_modified.js"></script>
+
+    <!-- INCLUDE DEMO SCRIPT -->
+    <script src="./main.js"></script>
+ 
+
+    <style>
+        * { margin:0; padding:0; } /* to remove the top and left whitespace */
+
+        html, body { width:100%; height:100%; } /* just to be sure these are full screen*/
+
+        canvas { display:block; } /* To remove the scrollbars */
+    </style>
+  </head>
+  
+  <body onload="main()" >
+    <canvas id='jeeFaceFilterCanvas'></canvas>
+
+    <!-- BEGIN OF A-FRAME SCENE -->
+    <!-- All objects with the ID jeelizFaceFilterFollow will follow the head -->
+    <a-scene embedded>
+        <a-assets>
+            <img id="logo" src="SponsTemplateBlack_v1.png" crossorigin="anonymous">
+        </a-assets>
+      <a-image id='jeelizFaceFilterFollow' position="0 1.8 0" rotation="0 0 0" src="#logo"  scale="4.5 1 0" material="transparent: true"></a-image>
+
+      
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+    <!-- END OF A-FRAME SCENE -->
+
+  </body>
+  <script>
+    (function() {
+        var canvas = document.getElementById('jeeFaceFilterCanvas');
+
+        // resize the canvas to fill browser window dynamically
+        window.addEventListener('resize', resizeCanvas, false);
+
+        function resizeCanvas() {
+            console.log('Test')
+                console.log(window.innerWidth+' '+window.innerHeight)
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                /**
+                 * Your drawings need to be inside this function otherwise they will be reset when 
+                 * you resize the browser window and the canvas goes will be cleared.
+                 */
+                drawStuff(); 
+        }
+        
+        canvas.width = window.innerWidth/1.5;
+        canvas.height = window.innerHeight/1.5; 
+        function drawStuff() {
+                // do your drawing stuff here
+        }
+    })();
+</script>
+
+</html>
